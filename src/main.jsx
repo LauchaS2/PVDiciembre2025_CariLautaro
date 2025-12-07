@@ -1,10 +1,14 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+// src/main.jsx (MODIFICAR ESTE ARCHIVO)
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import './index.css';
+import { ProveedorAutenticacion } from './context/ContextoAutenticacion.jsx'; // 👈 Nombre nuevo
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <ProveedorAutenticacion>
+      <App />
+    </ProveedorAutenticacion>
+  </React.StrictMode>,
+);
