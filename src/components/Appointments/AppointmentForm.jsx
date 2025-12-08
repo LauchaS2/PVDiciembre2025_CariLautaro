@@ -23,13 +23,15 @@ function FormularioTurno() {
 
         const hoy = new Date().toISOString().slice(0, 10); 
         
-        const slotsOcupadosHoy = turnos
-            .filter(t => 
-                t.medico.id.toString() === idMedicoSeleccionado && 
-                t.date === hoy
-            )
-            .map(t => t.time);
-
+      
+const slotsOcupadosHoy = turnos
+    .filter(t => 
+        // 🐛 CORRECCIÓN: Triple verificación para evitar 'undefined'
+        t.medico && t.medico.id && t.medico.id !== undefined && 
+        t.medico.id.toString() === idMedicoSeleccionado && 
+        t.date === hoy
+    )
+    .map(t => t.time);
         return HORARIOS_MANANA.filter(slot => !slotsOcupadosHoy.includes(slot));
     }, [idMedicoSeleccionado, turnos]);
 
