@@ -11,7 +11,6 @@ function InicioSesion() {
     const { iniciarSesion, estaLogueado } = useAuth();
     const navigate = useNavigate();
 
-    // Si ya está logueado, redirige al panel
     useEffect(() => {
         if (estaLogueado) {
             navigate('/panel');
@@ -21,9 +20,7 @@ function InicioSesion() {
     const handleSubmit = (e) => {
         e.preventDefault();
         setError('');
-
         if (iniciarSesion(email, password)) {
-            // Éxito: El useEffect de arriba se encargará de redirigir
             console.log("Inicio de sesión exitoso");
         } else {
             setError('Credenciales incorrectas. Intente de nuevo.');
@@ -31,49 +28,38 @@ function InicioSesion() {
     };
 
     return (
-        <div style={{ maxWidth: '400px', margin: '50px auto', padding: '20px', border: '1px solid #ccc', borderRadius: '8px' }}>
-            <h2>Inicia Sesión</h2>
-            <form onSubmit={handleSubmit}>
-                {error && <p style={{ color: 'red' }}>{error}</p>}
+        <div className="card-container">
+            <div className="card">
+                <h2 className="text-center">Inicia Sesión</h2>
+                <form onSubmit={handleSubmit}>
+                    {error && <div className="alert alert-danger">{error}</div>}
+                    
+                    <div className="form-group">
+                        <label>Email:</label>
+                        <input type="email" className="form-input" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    </div>
+                    
+                    <div className="form-group">
+                        <label>Contraseña:</label>
+                        <input type="password" className="form-input" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                    </div>
+                    
+                    <button type="submit" className="btn btn-success" style={{ marginTop: '10px' }}>
+                        Entrar al Sistema
+                    </button>
+                </form>
+                <p className="text-center" style={{ marginTop: '15px' }}>
+                    ¿No tienes cuenta? <Link to="/registro">Regístrate aquí</Link>
+                </p>
                 
-                <div style={{ marginBottom: '15px' }}>
-                    <label>Email:</label>
-                    <input 
-                        type="email" 
-                        value={email} 
-                        onChange={(e) => setEmail(e.target.value)} 
-                        required 
-                        style={{ width: '100%', padding: '10px' }}
-                    />
+                <div style={{ borderTop: '1px solid #eee', paddingTop: '10px', marginTop: '15px', fontSize: '0.9em' }}>
+                    <p style={{ fontWeight: 'bold', marginBottom: '5px' }}>Usuarios de prueba:</p>
+                    <ul style={{ listStyleType: 'none', paddingLeft: 0, margin: 0 }}>
+                        <li>Paciente: <code>paciente@test.com</code> / <code>123</code></li>
+                        <li>Médico: <code>medico@test.com</code> / <code>123</code></li>
+                    </ul>
                 </div>
-                
-                <div style={{ marginBottom: '15px' }}>
-                    <label>Contraseña:</label>
-                    <input 
-                        type="password" 
-                        value={password} 
-                        onChange={(e) => setPassword(e.target.value)} 
-                        required 
-                        style={{ width: '100%', padding: '10px' }}
-                    />
-                </div>
-                
-                <button type="submit" style={{ width: '100%', padding: '10px', background: '#4caf50', color: 'white', border: 'none', cursor: 'pointer' }}>
-                    Entrar al Sistema
-                </button>
-            </form>
-            <p style={{ marginTop: '15px', textAlign: 'center' }}>
-                ¿No tienes cuenta? <Link to="/registro">Regístrate aquí</Link>
-            </p>
-            
-            {/* Notas para el evaluador: */}
-            <blockquote style={{ fontSize: '0.8em', background: '#f0f0f0', padding: '10px', borderLeft: '3px solid blue' }}>
-                <p>Usuarios de prueba (cargados en ContextoAutenticacion.jsx):</p>
-                <ul>
-                    <li>Paciente: paciente@test.com / 123</li>
-                    <li>Médico: medico@test.com / 123</li>
-                </ul>
-            </blockquote>
+            </div>
         </div>
     );
 }
