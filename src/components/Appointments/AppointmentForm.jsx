@@ -1,4 +1,4 @@
-// src/components/Appointments/AppointmentForm.jsx
+
 
 import React, { useState, useMemo } from 'react';
 import DetalleTurno from './AppointmentDetail'; 
@@ -26,7 +26,6 @@ function FormularioTurno() {
       
 const slotsOcupadosHoy = turnos
     .filter(t => 
-        // 🐛 CORRECCIÓN: Triple verificación para evitar 'undefined'
         t.medico && t.medico.id && t.medico.id !== undefined && 
         t.medico.id.toString() === idMedicoSeleccionado && 
         t.date === hoy

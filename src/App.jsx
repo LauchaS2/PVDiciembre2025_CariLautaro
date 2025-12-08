@@ -1,4 +1,4 @@
-// src/App.jsx (MODIFICAR ESTE ARCHIVO)
+
 
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Encabezado from './components/Common/Encabezado'; // Componente de Cabecera
@@ -30,7 +30,7 @@ function App() {
             } 
           />
           
-          {/* ... Aquí podrías agregar más rutas como "/turnos/reservar" */}
+          
           
           {/* Ruta para errores 404 */}
           <Route path="*" element={<h1>404 | Página no encontrada</h1>} />

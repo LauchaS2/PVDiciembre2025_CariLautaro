@@ -1,4 +1,4 @@
-// src/components/Appointments/AppointmentDetail.jsx (MODIFICAR)
+
 
 import React from 'react';
 

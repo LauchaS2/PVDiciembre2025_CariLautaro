@@ -1,4 +1,4 @@
-// src/pages/PanelControl.jsx
+
 
 import React from 'react';
 import { useAuth } from '../context/ContextoAutenticacion';
@@ -24,9 +24,7 @@ function PanelControl() {
                 Hola, **{usuarioAutenticado?.name}**. Rol: <span style={{ background: '#eee', padding: '4px 8px', borderRadius: '4px', color: 'var(--color-text)', fontWeight: 500 }}>{rol}</span>
             </p>
             
-            {/* === CONTENEDOR PRINCIPAL DEL LAYOUT ===
-            Aseguramos que el contenido del Médico y del Paciente estén AQUÍ.
-            */}
+            
             <div style={{ 
                 display: 'flex', 
                 gap: '30px', 

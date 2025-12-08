@@ -1,4 +1,3 @@
-// src/context/ContextoAutenticacion.jsx
 
 import React, { createContext, useContext, useMemo } from 'react';
 // IMPORTAMOS el hook con el nuevo nombre:
@@ -8,8 +7,8 @@ const ContextoAutenticacion = createContext();
 
 // 1. Datos iniciales (se simula la base de datos)
 const USUARIOS_INICIALES = [
-    { id: 1, email: 'paciente@test.com', password: '123', role: 'Paciente', name: 'Laura Gómez' },
-    { id: 2, email: 'medico@test.com', password: '123', role: 'Medico', name: 'Dr. Alejandro Soto', specialty: 'Cardiología' }
+    { id: 1, email: 'paciente@test.com', password: '123', role: 'Paciente', name: 'Ariana Luna' },
+    { id: 2, email: 'medico@test.com', password: '123', role: 'Medico', name: 'Dr. Matin Armata', specialty: 'Cardiología' }
 ];
 
 const TURNOS_INICIALES = [];

@@ -1,8 +1,8 @@
-/* src/index.css - Diseño Minimalista y Monocromático */
+
 
 /* === VARIABLES Y BASE === */
 :root {
-    --color-primary: #000000; /* Único color de acento: Azul */
+    --color-primary: #000000; /* Único color de acento: Negro */
     --color-success: #28a745; /* Mantener verde para mensajes de éxito */
     --color-danger: #dc3545;  /* Mantener rojo para errores */
     --color-bg-light: #f4f4f9; /* Fondo muy claro */
@@ -36,8 +36,6 @@ h1, h2 {
     margin-top: 50px;
 }
 
-/* src/index.css */
-/* src/index.css (MODIFICAR LA CLASE .card) */
 
 .card {
     background-color: white;

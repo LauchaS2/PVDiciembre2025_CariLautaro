@@ -1,4 +1,4 @@
-// src/components/hooks/useAlmacenamientoLocal.js
+
 
 import { useState, useEffect } from 'react';
 
